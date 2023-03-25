@@ -25,7 +25,7 @@ function listContacts() {
         }
         const items = JSON.parse(data)
         const result = items.find(d=> contactId === d.id)
-        console.log(result)
+        console.table(result)
     })
   }
   
@@ -40,7 +40,7 @@ function listContacts() {
           return null
         }
         fs.writeFileSync(contactsPath, JSON.stringify(result));
-        console.log(result)
+        console.table(result)
     })
   }
   
@@ -54,7 +54,7 @@ function listContacts() {
         const newContact = { id, name, email, phone };
         items.push(newContact);
         fs.writeFileSync(contactsPath, JSON.stringify(items));
-        console.log(newContact)
+        console.table(newContact)
     })
   }
 
