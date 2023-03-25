@@ -14,7 +14,7 @@ function listContacts() {
             console.log(error)
         }
         const res = JSON.parse(data);
-        console.log(res)
+        console.table(res)
     })
   }
   
@@ -36,6 +36,10 @@ function listContacts() {
         }
         const items = JSON.parse(data)
         const result = items.filter(d=> contactId !== d.id)
+        if (result === -1) {
+          return null
+        }
+        fs.writeFileSync(contactsPath, JSON.stringify(result));
         console.log(result)
     })
   }
